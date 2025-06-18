@@ -1,15 +1,20 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Card from "../components/Card";
 // import { Globe } from "../components/globe";
-import RealtimeClock3D from "../components/RealtimeClock3D";
+// import RealtimeClock3D from "../components/RealtimeClock3D";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/Frameworks";
+import { AuroraBackground } from "../components/AuroraBackground";
+import { AnimatePresence, motion } from "motion/react";
+import { CanvasRevealEffect } from "../components/CanvasRevealEffect";
 import {
   Aceternity3DCard,
   Aceternity3DCardItem,
   Aceternity3DCardBody,
 } from "../components/Aceternity3DCard";
+import "../index.css";
 const About = () => {
+  const [hovered, setHovered] = useState(false);
   const grid2Container = useRef();
   return (
     <section className="c-space section-spacing" id="about">
@@ -36,14 +41,20 @@ const About = () => {
           <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo"></div>
         </div>
         {/* Grid 2 */}
-        <div className="flex grid-default-color grid-2">
+        <div
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+          className="flex grid-default-color grid-2 relative overflow-hidden" // Thêm relative và overflow-hidden cho div chính của grid2
+        >
+          {/* Đây là lớp chứa nội dung, nằm ở trên (z-index cao hơn) */}
           <div
-            ref={grid2Container}
-            className="flex items-center justify-center w-full h-full"
+            ref={grid2Container} // ref vẫn ở đây nếu các Card cần nó
+            className="relative z-20 flex items-center justify-center w-full h-full" // Nội dung cần z-index cao hơn
           >
             <p className="flex imtems-end text-5xl text-gray-500">
               CODE IS CRAFT
             </p>
+            {/* Các Card component của bạn */}
             <Card
               style={{ rotate: "75deg", top: "30%", left: "20%" }}
               text="GRASP"
@@ -71,36 +82,61 @@ const About = () => {
             />
             <Card
               style={{ rotate: "30deg", top: "70%", left: "70%" }}
-              image="assets/logos/csharp-pink.png"
+              image="assets/logos/java-2.png"
               containerRef={grid2Container}
             />
             <Card
               style={{ rotate: "-45deg", top: "70%", left: "25%" }}
-              image="assets/logos/dotnet-pink.png"
+              image="assets/logos/python-2.png"
               containerRef={grid2Container}
             />
             <Card
               style={{ rotate: "-45deg", top: "5%", left: "10%" }}
-              image="assets/logos/blazor-pink.png"
+              image="assets/logos/react.svg"
               containerRef={grid2Container}
             />
           </div>
+
+          {/* Đây là lớp hiệu ứng CanvasRevealEffect, nằm ở dưới (z-index thấp hơn) */}
+          <AnimatePresence>
+            {hovered && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                // Đặt z-index THẤP HƠN so với nội dung chính
+                className="h-full w-full absolute inset-0 z-10" // <-- Thay đổi z-index thành 10
+              >
+                <CanvasRevealEffect
+                  animationSpeed={5}
+                  containerClassName="bg-transparent" // Quan trọng để nền của CanvasRevealEffect không che mất các hiệu ứng
+                  colors={[
+                    [59, 130, 246], // Blue-500
+                    [139, 92, 246], // Violet-500 (or Indigo-500 depending on exact hue)
+                  ]}
+                  opacities={[0.2, 0.2, 0.2, 0.2, 0.2, 0.4, 0.4, 0.4, 0.4, 1]}
+                  dotSize={2}
+                />
+              </motion.div>
+            )}
+          </AnimatePresence>
+          {/* Radial gradient for the cute fade */}
         </div>
         {/* Grid 3 */}
-        <div className="flex bg-gradient-to-br from-gray-900 via-indigo-900 to-black grid-3 relative overflow-hidden items-center justify-center">
+        <div className="flex rounded-2xl bg-gradient-to-br from-gray-900 via-indigo-900 to-black grid-3 relative overflow-hidden items-center justify-center">
           {" "}
           <Aceternity3DCard className="flex flex-col items-center justify-center">
-            <Aceternity3DCardBody className="bg-cyan-200 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[90vw] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto rounded-xl p-3 border">
+            <Aceternity3DCardBody className="bg-gradient-to-br from-gray-400 to-cyan-800 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[90vw] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto rounded-xl p-3 border">
               <Aceternity3DCardItem
                 translateZ="50"
-                className="text-base font-bold text-neutral-600 dark:text-white"
+                className="text-base font-bold text-neutral-100 dark:text-white portfolio-text-shadow"
               >
                 Portfolio
               </Aceternity3DCardItem>
               <Aceternity3DCardItem
                 as="p"
                 translateZ="60"
-                className="text-neutral-500 text-xs max-w-xs mt-1 dark:text-neutral-300"
+                className="text-neutral-600 text-xs max-w-xs mt-1 dark:text-neutral-300 "
               >
                 WelCome To My Portfolio.
               </Aceternity3DCardItem>
@@ -130,13 +166,26 @@ const About = () => {
         </div>
 
         {/* Grid 4 */}
-        <div className="grid-special-color grid-4">
-          <div className="flex flex-col items-center justify-center gap-4 size-full">
-            <p className="text-center headtext">
-              Do you want to start project together?
-            </p>
-            <CopyEmailButton />
-          </div>
+        <div className="bg-gradient-to-tl from-cyan-200 border-e-amber-500 to-black grid-4 rounded-2xl relative h-full">
+          <AuroraBackground className="z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 1,
+                duration: 1.5,
+                ease: "easeInOut",
+              }}
+              className="relative flex flex-col gap-4 items-center justify-center px-4 z-20"
+            >
+              {/* <div className="flex flex-col items-center justify-center gap-4 size-full"> */}
+              <p className="text-center headtext text-white portfolio-text-shadow ">
+                Do you want to start project together?
+              </p>
+              <CopyEmailButton />
+              {/* </div> */}
+            </motion.div>
+          </AuroraBackground>
         </div>
         {/* Grid 5 */}
         <div className="flex grid-default-color grid-5">

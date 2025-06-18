@@ -23,11 +23,11 @@ const ParallaxBackground = () => {
     for (let i = 0; i < numberOfMeteors; i++) {
       newMeteors.push({
         id: i,
-        size: Math.random() * 2 + 1, // Kích thước thiên thạch
+        size: Math.random() * 3 + 1, // Kích thước thiên thạch
         x: Math.random() * 100, // Vị trí X ban đầu (0-100% chiều rộng)
-        y: Math.random() * 20, // Vị trí Y ban đầu (0-20% chiều cao)
-        delay: Math.random() * 15, // Độ trễ animation
-        animationDuration: Math.random() * 3 + 3, // Thời lượng animation
+        y: Math.random() * 10, // Vị trí Y ban đầu (0-20% chiều cao)
+        delay: Math.random() * 5, // Độ trễ animation
+        animationDuration: Math.random() * 5 + 5, // Thời lượng animation
       });
     }
     setMeteors(newMeteors);

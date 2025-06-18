@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap");
 @import "tailwindcss";
+@theme inline {
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+    to {
+      background-position: 350% 50%, 350% 50%;
+    }
+  }
+}
 @theme {
   --color-primary: #030412;
   --color-midnight: #06091f;
@@ -76,6 +87,10 @@ body {
   color: white;
   scroll-behavior: smooth;
   overflow-x: hidden;
+}
+
+.portfolio-text-shadow {
+  text-shadow: 2px 2px 4px rgb(255, 255, 255); /* Adjust values as needed */
 }
 
 .c-space {
