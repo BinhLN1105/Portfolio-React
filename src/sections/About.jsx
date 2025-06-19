@@ -21,7 +21,7 @@ const About = () => {
       <h2 className="text-heading">About Me</h2>
       <div
         className="grid grid-cols-1 gap-4 md:grid-cols-6
-        md:auto-rows-[18rem] mt-12"
+        md:auto-rows-[18rem] mt-12 items-stretch"
       >
         {/* Grid 1 */}
         <div className="flex items-end grid-default-color grid-1 relative overflow-hidden">
@@ -51,7 +51,7 @@ const About = () => {
             ref={grid2Container} // ref vẫn ở đây nếu các Card cần nó
             className="relative z-20 flex items-center justify-center w-full h-full" // Nội dung cần z-index cao hơn
           >
-            <p className="flex imtems-end text-5xl text-gray-500">
+            <p className="flex imtems-end text-center text-5xl text-gray-500">
               CODE IS CRAFT
             </p>
             {/* Các Card component của bạn */}
@@ -146,7 +146,7 @@ const About = () => {
               >
                 <img
                   src="/assets/picture/My-picture.png"
-                  className="h-40 w-45 object-cover rounded-xl group-hover/card:shadow-xl"
+                  className="h-40 w-45 object-cover rounded-xl group-hover/card:shadow-2xl group-hover/card:shadow-cyan-500/90"
                   alt="Time Zone Map"
                 />
               </Aceternity3DCardItem>

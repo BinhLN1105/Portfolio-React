@@ -3,7 +3,6 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      // Thêm phần này vào đây
       keyframes: {
         // Thêm keyframes cho hiệu ứng 3D card và các hiệu ứng khác nếu có từ Aceternity
         spotlight: {
