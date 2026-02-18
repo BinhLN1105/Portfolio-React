@@ -7,7 +7,7 @@ const HeroText = () => {
     visible: { opacity: 1, x: 0 },
   };
   const myTexts = [
-    "A Second Year Student.",
+    "An IT Student.",
     "A Developer.",
     // Text on screen
   ];

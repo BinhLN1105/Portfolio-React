@@ -8,6 +8,7 @@ const Projects = () => {
   const springX = useSpring(x, { damping: 25, stiffness: 100 });
   const springY = useSpring(y, { damping: 25, stiffness: 100 });
   const handleMouseMove = (e) => {
+    if (!preview) return;
     x.set(e.clientX + 20);
     y.set(e.clientY + 20);
   };
@@ -19,7 +20,7 @@ const Projects = () => {
       id="project"
     >
       <h2 className="text-heading">My Selected Project</h2>
-      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[-1px] w-full" />
+      <div className="bg-gradient-to-r from-transparent via-neutral-700 to-transparent mt-12 h-[1px] w-full" />
       {myProjects.map((project) => (
         <Project key={project.id} {...project} setPreview={setPreview} />
       ))}

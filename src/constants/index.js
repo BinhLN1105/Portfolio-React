@@ -55,6 +55,57 @@ export const myProjects = [
       },
     ],
   },
+  {
+    id: 3,
+    title: "VoltNexus EV Enterprise Ecosystem",
+    description:
+      "A comprehensive ecosystem for electric vehicle (EV) management, designed to support enterprise-level operations and scalability.",
+    subDescription: [
+      "Designed with an Event-Driven approach using Apache Kafka for seamless inter-service communication.",
+      "Integrates AI-powered demand forecasting, Redis distributed caching, and a secure API Gateway.",
+      "Features independent services for Vehicle, Sales, Inventory, and Payment orchestration."
+    ],
+    href: "https://github.com/phu-boop/VoltNexus-EV-Enterprise-Ecosystem.git",
+    logo: "/assets/logos/spring-boot.png",
+    image: "/assets/projects/evm-project.png",
+    tags: [
+      {
+        id: 1,
+        name: "Microservices",
+        path: "/assets/logos/microservice.png",
+      },
+      {
+        id: 2,
+        name: "Spring Boot",
+        path: "/assets/logos/spring-boot.png",
+      },
+      {
+        id: 3,
+        name: "ReactJS",
+        path: "/assets/logos/react.svg",
+      },
+      {
+        id: 4,
+        name: "SQL",
+        path: "/assets/logos/sql.png",
+      },
+      {
+        id: 5,
+        name: "Docker",
+        path: "/assets/logos/docker.png",
+      },
+      {
+        id: 6,
+        name: "Redis",
+        path: "/assets/logos/redis.png",
+      },
+      {
+        id: 7,
+        name: "Kafka",
+        path: "/assets/logos/kafka.png",
+      },
+    ],
+  },
 ];
 
 export const mySocials = [

@@ -26,32 +26,9 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-
-    try {
-      console.log("From submitted:", formData);
-      await emailjs.send(
-        "service_e3n4oo8",
-        "template_jld72gj",
-        {
-          from_name: formData.name,
-          to_name: "TestMail",
-          from_email: formData.email,
-          to_email: "lnb110525@gmail.com",
-          message: formData.message,
-        },
-        "UN7RRNru2MrnpJfp9"
-      );
-      setIsLoading(false);
-      setFormData({ name: "", email: "", message: "" });
-      showAlertMessage("success", "You message has been sent!");
-    } catch (error) {
-      setIsLoading(false);
-      console.log(error);
-      showAlertMessage("danger", "Somthing went wrong!");
-    }
   };
   return (
-    <section className="py-24 px-4 relative bg-secondary/30" id="contact">
+    <section className="py-24 px-4 relative bg-secondary/30 rounded-3xl" id="contact">
       <div className="container mx-auto max-w-5xl">
         <h2 className=" text-3xl md:text-4xl font-bold mb-4 text-center">
           Let's <span className="text-aqua text-4xl">Talk</span>

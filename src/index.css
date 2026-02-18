@@ -25,6 +25,7 @@
   --color-orange: #cc6033;
   --color-sand: #d6995c;
   --color-coral: #ea4884;
+  --color-secondary: #1c1c2e;
   --animate-orbit: orbit 50s linear infinite;
   @keyframes orbit {
     0% {

@@ -1,7 +1,5 @@
 import { useRef, useState } from "react";
 import Card from "../components/Card";
-// import { Globe } from "../components/globe";
-// import RealtimeClock3D from "../components/RealtimeClock3D";
 import CopyEmailButton from "../components/CopyEmailButton";
 import { Frameworks } from "../components/Frameworks";
 import { AuroraBackground } from "../components/AuroraBackground";
@@ -12,6 +10,8 @@ import {
   Aceternity3DCardItem,
   Aceternity3DCardBody,
 } from "../components/Aceternity3DCard";
+import LazyLoadComponent from "../components/LazyLoadComponent";
+
 import "../index.css";
 const About = () => {
   const [hovered, setHovered] = useState(false);
@@ -32,16 +32,17 @@ const About = () => {
           <div className="z-10">
             <p className="headtext">Hi, I'm Luu Nhat Binh</p>
             <p className="subtext">
-              A Second-year IT student with foundational Python and Java skills,
+              A Developer with foundational Python and Java skills,
               actively learning ReactJS.
               <br /> Eager to intern and gain hands-on experience in a
               professional environment.
             </p>
+
           </div>
           <div className="absolute inset-x-0 pointer-events-none -bottom-4 h-1/2 sm:h-1/3 bg-gradient-to-t from-indigo"></div>
         </div>
         {/* Grid 2 */}
-        <div
+        <LazyLoadComponent
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
           className="flex grid-default-color grid-2 relative overflow-hidden" // Thêm relative và overflow-hidden cho div chính của grid2
@@ -121,9 +122,9 @@ const About = () => {
             )}
           </AnimatePresence>
           {/* Radial gradient for the cute fade */}
-        </div>
+        </LazyLoadComponent>
         {/* Grid 3 */}
-        <div className="flex rounded-2xl bg-gradient-to-br from-gray-900 via-indigo-900 to-black grid-3 relative overflow-hidden items-center justify-center">
+        <LazyLoadComponent className="flex rounded-2xl bg-gradient-to-br from-gray-900 via-indigo-900 to-black grid-3 relative overflow-hidden items-center justify-center">
           {" "}
           <Aceternity3DCard className="flex flex-col items-center justify-center">
             <Aceternity3DCardBody className="bg-gradient-to-br from-gray-400 to-cyan-800 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-[90vw] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg h-auto rounded-xl p-3 border">
@@ -163,10 +164,10 @@ const About = () => {
               </div>
             </Aceternity3DCardBody>
           </Aceternity3DCard>
-        </div>
+        </LazyLoadComponent>
 
         {/* Grid 4 */}
-        <div className="bg-gradient-to-tl from-cyan-200 border-e-amber-500 to-black grid-4 rounded-2xl relative h-full">
+        <LazyLoadComponent className="bg-gradient-to-tl from-cyan-200 border-e-amber-500 to-black grid-4 rounded-2xl relative h-full">
           <AuroraBackground className="z-10">
             <motion.div
               initial={{ opacity: 0, y: 40 }}
@@ -186,7 +187,7 @@ const About = () => {
               {/* </div> */}
             </motion.div>
           </AuroraBackground>
-        </div>
+        </LazyLoadComponent>
         {/* Grid 5 */}
         <div className="flex grid-default-color grid-5">
           <div className="z-10 w-[50%]">

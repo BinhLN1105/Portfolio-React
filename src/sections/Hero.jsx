@@ -7,6 +7,7 @@ import { useMediaQuery } from "react-responsive";
 import * as easing from "maath/easing";
 import { Suspense } from "react";
 import Loader from "../components/Loader";
+import LazyLoadComponent from "../components/LazyLoadComponent";
 const Hero = () => {
   const isMobile = useMediaQuery({ maxWidth: 853 });
   return (
@@ -18,10 +19,7 @@ const Hero = () => {
     >
       <HeroText />
       <ParallaxBackground />
-      <figure
-        className="absolute inset-0"
-        style={{ width: "100vw", height: "100vh" }}
-      >
+      <LazyLoadComponent className="absolute inset-0" style={{ width: "100vw", height: "100vh" }}>
         <Canvas camera={{ position: [0, 1, 3] }}>
           <Suspense fallback={<Loader />}>
             <Float>
@@ -33,7 +31,7 @@ const Hero = () => {
             <Rig />
           </Suspense>
         </Canvas>
-      </figure>
+      </LazyLoadComponent>
     </section>
   );
 };
