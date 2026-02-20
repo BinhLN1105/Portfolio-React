@@ -34,7 +34,7 @@ export const myProjects = [
       "Provides real-time progress monitoring, health benefits tracking, and motivational support.",
       "Designed to guide users through key milestones toward a smoke-free life.",
     ],
-    href: "https://github.com/BinhLN1105/",
+    href: "https://github.com/BinhLN1105/demoquitsmoking.git",
     logo: "/assets/logos/java.png",
     image: "/assets/projects/Quit-Smoking.png",
     tags: [
